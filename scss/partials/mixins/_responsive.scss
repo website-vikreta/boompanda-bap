@@ -1,0 +1,42 @@
+// mixin use to create elements with aspect ratios i.e. 1200*720 | 400*300
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+   $padding: unquote(($y / $x) * 100 + '%');
+
+   @if $pseudo {
+      &::before {
+         @include pseudo($pos: relative);
+         width: 100%;
+         padding-top: $padding;
+      }
+   }
+
+   @else {
+      padding-top: $padding;
+   }
+}
+
+// Media Queries
+$breakpoints: ("phone": 400px,
+   "phone-wide": 480px,
+   "phablet": 560px,
+   "tablet-small": 640px,
+   "tablet": 768px,
+   "tablet-wide": 1024px,
+   "desktop": 1248px,
+   "desktop-wide": 1440px);
+
+@mixin mq($width, $type: max) {
+
+   //By default using max but for mobile first approach you can set it to min
+   @if map_has_key($breakpoints, $width) {
+      $width: map_get($breakpoints, $width);
+
+      @if $type==max {
+         $width: $width - 1px;
+      }
+
+      @media only screen and (#{$type}-width: $width) {
+         @content;
+      }
+   }
+}

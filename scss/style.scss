@@ -1,0 +1,15 @@
+@import "./partials/resets";
+
+// !---------- Mandatory Imports ------------
+@import "./partials/variables";
+@import "./partials/mixins";
+
+
+// !---------- Component styles ------------
+@import "./components/preloader";
+@import "./components/backToTop";
+@import "./components/forms";
+
+
+// !---------- Pages ------------
+@import "./pages/home";

@@ -1,0 +1,38 @@
+// Setting Up fonts
+@mixin font($font: $primary-font, $size: false, $colour: false, $weight: false, $lh: false) {
+   font-family: $font;
+
+   @if $size {
+      font-size: $size;
+   }
+
+   @if $colour {
+      color: $colour;
+   }
+
+   @if $weight {
+      font-weight: $weight;
+   }
+
+   @if $lh {
+      line-height: $lh;
+   }
+}
+
+//consistent font size
+@function calculateRem($size) {
+   $remSize: $size / 16px;
+   @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+   font-size: $size;
+   font-size: calculateRem($size);
+}
+
+//text shortning (appends ... in the end)
+@mixin text-shorten {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}

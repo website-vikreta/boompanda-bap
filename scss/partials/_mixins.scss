@@ -1,0 +1,38 @@
+// ! -------------- Specific Mixins -----------------
+@import "./mixins/layouts";
+@import "./mixins/typography";
+@import "./mixins/responsive";
+@import "./mixins/extras";
+
+
+// ! -------------- General Mixins -----------------
+
+// prevents some components from being selected
+@mixin unselectable {
+   -webkit-touch-callout: none;
+   user-select: none;
+}
+
+// pseudo element mixin
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+   content: $content;
+   display: $display;
+   position: $pos;
+}
+
+// clearfix
+%clearfix {
+   *zoom: 1; // star property hack for IE6 & IE7
+
+   &:before,
+   &:after {
+      content: " ";
+      display: table;
+   }
+
+   &:after {
+      clear: both;
+   }
+}
+
+//usage - @extends %clearfix;
