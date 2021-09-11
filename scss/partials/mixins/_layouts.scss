@@ -10,6 +10,12 @@
    justify-content: center;
 }
 
+@mixin flex-between {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
 @mixin flex-center-column {
    @include flex-center;
    flex-direction: column;
@@ -23,4 +29,21 @@
 @mixin flex-center-horiz {
    display: flex;
    justify-content: center;
+}
+
+
+// ! ----------- Z-Index ------------
+$z-index: (popup: 200,
+   navigation:100,
+   buttons:50,
+   pseudoBefore: -1,
+   pseudoAfter: -2);
+
+
+@function z-index($key) {
+   @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+   z-index: z-index($key);
 }

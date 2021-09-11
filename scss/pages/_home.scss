@@ -1,0 +1,872 @@
+// ! HERO STYLES
+.hero {
+   width: 100%;
+   color: $dark;
+   position: relative;
+
+   .container {
+      @include flex-between;
+      min-height: 100vh;
+   }
+
+   &::before {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='29' height='50.115' patternTransform='scale(1.25) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M14.498 16.858L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z'  stroke-width='1' stroke='hsla(0, 0%, 0%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      @include z-index(pseudoBefore);
+   }
+
+   &::after {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      background: linear-gradient(19.43deg, #FFFFFF 3.8%, rgba(255, 255, 255, 0) 13.83%), linear-gradient(270deg, #FFFFFF 34.01%, rgba(255, 255, 255, 0) 100%);
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      @include z-index(pseudoBefore);
+   }
+
+   &__svg {
+      position: absolute;
+      bottom: -50px;
+      left: -70px;
+      max-width: 300px;
+   }
+
+   .row {
+      @include flex-center;
+      width: 100%;
+
+      &__col {
+         flex: 1;
+      }
+
+      &__col--content {
+         padding-right: calculateRem(120px);
+      }
+   }
+
+   // content
+   &__join {
+      font-size: calculateRem(25px);
+      margin-bottom: 1rem;
+   }
+
+   &__fullForm {
+      font-size: calculateRem(40px);
+      font-weight: 400;
+      line-height: 100%;
+
+      #{&}--large-font {
+         font-size: calculateRem(60px);
+         font-weight: 600;
+      }
+   }
+
+   &__text {
+      font-size: calculateRem(35px);
+      font-weight: 300;
+      line-height: 100%;
+
+      &--one {
+         margin: 40px auto calculateRem(28px) 0;
+      }
+
+      &--two {
+         text-align: right;
+         margin-top: 1rem;
+      }
+   }
+
+   &__title,
+   &__title span {
+      font-size: calculateRem(230px);
+      display: block;
+      line-height: 70%;
+      text-align: center;
+   }
+
+   &__buttons {
+      display: flex;
+      margin-top: 2rem;
+      gap: 1rem;
+   }
+
+   &__cta {
+      position: relative;
+      @include z-index(buttons);
+      display: inline-block;
+      color: $dark;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid $dark;
+      background: white;
+
+      &:hover {
+         box-shadow: 0 10px 20px 0 rgba($color: #000000, $alpha: 0.2);
+      }
+
+      &--dark {
+         border-color: $dark;
+         background: $dark;
+         color: white;
+      }
+   }
+
+   @include make-responsive(tablet-wide) {
+      .row {
+         &__col--first {
+            flex: 1;
+         }
+
+         &__col--second {
+            flex: 1.25;
+         }
+
+         &__col--content {
+            padding-right: calculateRem(0px);
+         }
+      }
+
+      // content
+      &__join {
+         font-size: calculateRem(18px);
+         margin-bottom: 0.9rem;
+      }
+
+      &__fullForm {
+         font-size: calculateRem(30px);
+
+         #{&}--large-font {
+            font-size: calculateRem(50px);
+         }
+      }
+
+      &__text {
+         font-size: calculateRem(28px);
+
+         &--one {
+            margin-top: calculateRem(30px);
+         }
+      }
+
+      &__title,
+      &__title span {
+         font-size: calculateRem(200px);
+      }
+
+      &__buttons {
+         margin-top: 4rem;
+      }
+
+      &__cta {
+         padding: 0.4rem 1.2rem;
+      }
+   }
+
+   @include make-responsive(tablet) {
+      padding-top: 10%;
+
+      &::after {
+         background: linear-gradient(to top, #FFFFFF 3.8%, rgba(255, 255, 255, 0) 50%), linear-gradient(-120deg, #FFFFFF 15%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .row {
+         flex-direction: column-reverse;
+
+         &__col {
+            flex: initial;
+            text-align: center;
+
+            * {
+               text-align: center;
+            }
+         }
+
+         .lottiePlayer {
+            width: 90% !important;
+            height: 90% !important;
+            margin: auto;
+         }
+      }
+
+      &__title,
+      &__title span {
+         font-size: calculateRem(150px);
+      }
+
+      &__buttons {
+         justify-content: center;
+         margin-top: 3rem;
+      }
+   }
+
+   @include make-responsive(phone) {
+      padding-top: 0 !important;
+
+      &__svg {
+         bottom: -20px;
+         max-width: 200px;
+      }
+   }
+}
+
+
+// ! ABOUT US STYLES
+.about-us {
+   .row {
+      @include flex-center;
+      align-items: flex-start;
+      width: 100%;
+
+      &__col {
+         flex: 1;
+
+         &--first {
+            transform: translateX(-100px);
+
+            @include z-index(pseudoBefore)
+         }
+      }
+   }
+
+   // mission
+   .mission {
+      --card-width: 400px;
+      max-width: var(--card-width);
+      background: white;
+      padding: calculateRem(40px);
+      padding-bottom: 60px;
+      box-shadow: 0px 20px 60px rgba(54, 79, 107, 0.2);
+      transform: translateX(-50%);
+      margin-top: 70px;
+
+      background: url("../../assets/svg/about-plants.svg") bottom no-repeat;
+      background-size: 100%;
+
+      .para {
+         letter-spacing: 0;
+         margin: 0.5rem 0;
+         font-size: 0.9rem;
+      }
+
+      &::before {
+         @include pseudo;
+         top: 0;
+         left: 100%;
+         width: calc(49vw - (var(--card-width) / 2));
+         height: 100%;
+         background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(1.25) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M10-6V6M10 14v12M26 10H14M6 10H-6'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(0, 0%, 0%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+         opacity: 0.2;
+      }
+   }
+
+   @include make-responsive(tablet-wide) {
+      .row {
+         &__col {
+            &--first {
+               transform: translateX(-50px);
+            }
+         }
+      }
+
+      .lottiePlayer {
+         margin: auto;
+         transform: scale(1.2);
+      }
+
+      .mission {
+         transform: translateX(-100%);
+
+         &::before {
+            width: calc(50vw - (var(--card-width) / 20));
+         }
+      }
+   }
+
+   @include make-responsive(tablet) {
+      .row {
+         flex-direction: column;
+         margin-top: 10vh;
+
+         &__col {
+            &--first {
+               transform: translateX(0);
+            }
+         }
+      }
+
+      .lottiePlayer {
+         width: 90% !important;
+         height: 90% !important;
+         transform: scale(1);
+         margin: auto;
+      }
+
+      // mission
+      .mission {
+         --card-width: 400px;
+         transform: translateX(0);
+         margin: auto;
+         margin-top: 2rem;
+
+         &::before {
+            display: none
+         }
+      }
+   }
+
+   @include make-responsive(phone) {
+      .row {
+         margin-top: 0vh;
+      }
+
+      .mission {
+         --card-width: 100%
+      }
+   }
+}
+
+
+// ! WHAT ROLE STYLES
+.bap-roles {
+   padding: 100px 0;
+
+   .card-wrapper {
+      @include flex-center;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: calculateRem(95px) calculateRem(25px);
+      margin-top: 100px;
+   }
+
+   .card {
+      max-width: 270px;
+      text-align: center;
+      border: 1px solid rgba(242, 30, 61, 0.2);
+      border-bottom: 10px solid $red;
+      padding: calculateRem(25px);
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0px 20px 20px rgba(254, 82, 68, 0.1);
+
+      &::after {
+         @include pseudo;
+         bottom: 5px;
+         left: 0;
+         width: 100%;
+         height: 2px;
+         background: $red;
+      }
+
+      &__lottie {
+         border: 1px solid rgba(242, 30, 61, 0.2);
+         border-radius: 10px;
+         width: 200px;
+         height: 200px;
+         @include flex-center;
+         margin: auto;
+         margin-top: -95px;
+         background: white;
+      }
+   }
+
+   @include make-responsive(tablet) {
+      .card-wrapper {
+         gap: calculateRem(50px) calculateRem(25px);
+      }
+
+      .card {
+         &__lottie {
+            width: 100px;
+            height: 100px;
+            margin: initial;
+            margin-top: -50px;
+            margin-bottom: 1rem;
+         }
+      }
+   }
+
+   @include make-responsive(phone) {
+      .heading {
+         max-width: 80%;
+      }
+
+      .card-wrapper {
+         margin-top: 50px;
+      }
+
+      .card {
+         max-width: initial;
+         width: 100%;
+         border-bottom: 2px solid $dark;
+         box-shadow: 0px 10px 10px rgba(254, 82, 68, 0.1);
+
+         &::after {
+            display: none;
+         }
+      }
+   }
+}
+
+
+// ! WHO CAN STYLES
+.who-can {
+   text-align: center;
+   padding: 20vh 0 10vh 0;
+   background: url("../../assets/svg/who-can.png") bottom no-repeat;
+   background-size: cover;
+
+   .lottie {
+      max-width: 100px;
+      margin: auto
+   }
+
+   .card-wrapper {
+      @include flex-between;
+      align-items: stretch;
+      gap: calculateRem(25px);
+      margin-top: calculateRem(70px);
+   }
+
+   .card {
+      flex: 1;
+      border: 1px solid #DDDDDD;
+      background: white;
+
+      &__lottie {
+         width: 100px;
+         height: 100px;
+         margin: auto;
+         border-radius: 100px;
+         margin-top: -50px;
+         background: white;
+      }
+
+      .para {
+         padding: 0 1.5rem;
+      }
+
+      &:hover {
+         box-shadow: 0 10px 10px 0 rgba($color: #000000, $alpha: 0.1);
+      }
+   }
+
+   .sub-heading {
+      text-align: center;
+      margin-top: calculateRem(50px);
+      margin-bottom: calculateRem(20px);
+   }
+
+   @include make-responsive(tablet-wide) {
+      padding: 8vh 0;
+
+      .heading {
+         max-width: 80%;
+      }
+
+      .lottie {
+         width: 80px;
+         height: 80px;
+      }
+
+      .card-wrapper {
+         justify-content: center;
+         flex-wrap: wrap;
+         gap: calculateRem(60px) calculateRem(25px);
+      }
+
+      .card {
+         flex: initial;
+         width: 300px !important;
+
+         &:hover {
+            box-shadow: none;
+         }
+      }
+   }
+
+
+}
+
+// ! CONTACT US STYLES
+#contactCheckbox:checked+.contact-us {
+   visibility: visible;
+   opacity: 1;
+   bottom: 0;
+}
+
+.contact-us {
+   --right-padding: 10vw;
+   position: fixed;
+   bottom: -200px;
+   left: 0;
+   opacity: 0;
+   visibility: hidden;
+   width: 100%;
+   height: 100vh;
+   overflow-y: scroll;
+   @include z-index(popup);
+   padding: calculateRem(50px) 0;
+   transition: $transition;
+
+   &::before {
+      @include pseudo;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      @include z-index(pseudoBefore)
+   }
+
+   &::after {
+      @include pseudo;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='68' height='61.151' patternTransform='scale(1.8) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M113.548 50.575H90.454l-11.547-20 11.547-20h23.094l11.547 20zm-136 0h-23.095l-11.547-20 11.547-20h23.094l11.547 20zm119 30.576H73.452l-11.547-20 11.547-20h23.094l11.547 20zm-34 0H39.452l-11.547-20 11.547-20h23.094l11.547 20zm-34 0H5.452l-11.547-20 11.547-20h23.094l11.547 20zm-34.001 0h-23.094l-11.547-20 11.547-20h23.094l11.547 20zm61.906-30.576h23.094l11.547-20-11.547-20H56.453l-11.547 20zm-10.906 0H22.453l-11.547-20 11.547-20h23.094l11.547 20zm-34 0h-23.094l-11.547-20 11.547-20h23.094l11.547 20zm85-30.575H73.453L61.906 0l11.547-20h23.094l11.547 20zm-34 0H39.453L27.906 0l11.547-20h23.094L74.094 0zm-34 0H5.453L-6.094 0 5.453-20h23.094L40.094 0zm-34 0h-23.094L-40.094 0l11.547-20h23.094L6.094 0z'  stroke-width='1' stroke='hsla(0, 0%, 0%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+      opacity: 0.05;
+      @include z-index(pseudoBefore)
+   }
+
+   .container {
+      max-width: 1200px;
+   }
+
+   .row {
+      display: flex;
+      width: 100%;
+
+      &__col--first {
+         width: 60vw;
+         padding-right: var(--right-padding);
+         position: relative;
+      }
+
+      &__col--second {
+         width: 40vw;
+      }
+
+      .overlay {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         width: 100%;
+         height: 100%;
+         transform: translate(-50%, -50%) scaleX(1.2);
+         background: white;
+         filter: blur(200px);
+         z-index: 0;
+
+         &~* {
+            position: relative;
+            z-index: 10;
+         }
+      }
+   }
+
+   .close {
+      position: sticky;
+      top: 0;
+      float: right;
+      @include flex-center;
+
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      background: white;
+      border: 1px solid $dark;
+
+      i {
+         color: $dark;
+         transition: $transition;
+      }
+
+      cursor: pointer;
+
+      &:hover i {
+         color: $red
+      }
+   }
+
+   .contact-info {
+      position: sticky;
+      top: 20vh;
+
+      .para {
+         margin: 0
+      }
+
+      .social-media {
+         margin-top: 2rem;
+
+         li {
+            @include flex-center-vert;
+            gap: 1rem;
+            margin: 1rem 0
+         }
+
+         i {
+            color: $red;
+            font-size: 1.2rem
+         }
+      }
+
+      &::before {
+         @include pseudo;
+         top: 50%;
+         left: 50%;
+         width: 110%;
+         height: 110%;
+         transform: translate(-50%, -50%);
+         background: white;
+         @include z-index(pseudoBefore);
+         filter: blur(200px);
+      }
+   }
+
+   // styling padination
+   .pagination {
+      @include flex-center-vert;
+      gap: 20px;
+      width: 100%;
+      margin-bottom: 3rem;
+
+      &__item {
+         width: 33.33%;
+
+         label {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+         }
+
+         .line {
+            width: 100%;
+            height: 8px;
+            background: #F6F6F6;
+            border: 1px solid #ddd;
+            position: relative;
+
+            &::after {
+               @include pseudo;
+               top: 0;
+               left: 0;
+               width: 0;
+               height: 100%;
+               background: $red;
+               transition: $transition;
+            }
+
+            &.active {
+               border-color: $red;
+            }
+
+            &.active::after {
+               width: 100%;
+            }
+         }
+      }
+   }
+
+
+   //styling form pane
+   .pane-wrapper {
+      overflow: hidden;
+
+      &__form-pane {
+         display: flex;
+         width: fit-content;
+         transition: $transition;
+      }
+
+      &__pane {
+         width: calc(60vw - var(--right-padding));
+         padding-right: calculateRem(50px);
+      }
+
+      .sub-heading {
+         font-size: calculateRem(32px);
+      }
+
+      .para {
+         margin: 0;
+         margin-bottom: 2rem;
+         width: 80ch;
+         max-width: 90%;
+         font-size: 0.9rem;
+      }
+
+      .form-row {
+         display: flex;
+         gap: 20px;
+      }
+
+      .form-group {
+         width: 100%;
+         border: 1px solid #CCCCCC;
+         position: relative;
+         margin-top: 1rem;
+
+         label {
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            transform: translateY(-50%);
+            background: white;
+            padding: 0 0.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+
+            * {
+               font-size: 0.5rem;
+               color: $red;
+               margin-left: 0.5rem;
+            }
+         }
+
+         input {
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding: 0.8rem 1.5rem;
+
+            &:focus {
+               outline: 1px solid $red;
+            }
+         }
+      }
+
+      .buttons {
+         margin-top: 2rem;
+         display: flex;
+         gap: 0.5rem;
+      }
+
+      .btn {
+         border: none;
+         padding: 0.5rem 1.5rem;
+         min-width: initial;
+         color: white;
+
+         &.btn--dark {
+            background: $dark;
+         }
+
+         &.btn--red {
+            background: $red;
+         }
+      }
+
+   }
+
+   @include make-responsive(tablet-wide) {
+      .pane-wrapper {
+         .sub-heading {
+            line-height: 120%;
+            margin-bottom: 0.5rem;
+         }
+
+         .para {
+            letter-spacing: 0;
+            font-size: 0.9rem;
+         }
+
+         &__pane {
+            padding-right: 10px;
+         }
+      }
+   }
+
+   @include make-responsive(tablet) {
+      .row {
+         flex-direction: column;
+
+         &__col--first {
+            width: 100vw;
+         }
+
+         &__col--second {
+            width: 100vw;
+         }
+      }
+
+      .close {
+         display: none;
+
+         &.display--none {
+            display: flex !important;
+            margin-bottom: 50px;
+            position: relative;
+         }
+      }
+
+      .pane-wrapper {
+         &__pane {
+            width: calc(100vw - var(--right-padding));
+         }
+      }
+   }
+
+   @include make-responsive(phone) {
+      padding: 20px 0;
+
+      .close {
+         &.display--none {
+            margin-top: 50px;
+            margin-bottom: 20px;
+         }
+      }
+
+      .contact-info {
+         position: relative;
+         top: 2rem;
+         margin-bottom: 50px;
+      }
+
+      .pagination {
+         margin-bottom: 1.5rem;
+
+         &__item {
+            width: 33.33%;
+
+            label {
+               font-size: 0.9rem;
+            }
+
+            .line {
+               width: 100%;
+               height: 8px;
+            }
+         }
+      }
+
+      .pane-wrapper {
+
+         .sub-heading {
+            font-size: calculateRem(25px);
+         }
+
+         .para {
+            max-width: 100%;
+            font-size: 0.8rem;
+         }
+
+         .form-row {
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+         }
+      }
+   }
+}

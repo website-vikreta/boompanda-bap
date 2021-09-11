@@ -4,11 +4,139 @@
 @import "./partials/variables";
 @import "./partials/mixins";
 
+body {
+   @include font;
+   // overflow-x: hidden;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   color: $dark;
+}
+
+.container {
+   max-width: 1300px;
+   margin: auto;
+
+   @include make-responsive(desktop) {
+      max-width: initial;
+      padding: 0 50px;
+   }
+
+   @include make-responsive(tablet-wide) {
+      padding: 0 30px;
+   }
+
+   @include make-responsive(phone) {
+      padding: 0 20px;
+   }
+}
+
+.font--mar {
+   @include font($secondary-font);
+}
+
+.font--bold {
+   font-weight: 600;
+}
+
+.color--red {
+   color: $red
+}
+
+.display--none {
+   display: none;
+}
+
+::selection {
+   background-color: rgba(242, 30, 61, 0.2);
+}
+
+.heading {
+   font-size: calculateRem(40px);
+   position: relative;
+   width: fit-content;
+   text-shadow: 0 5px 0 rgba($color: $red, $alpha: .15);
+
+   &::after {
+      @include pseudo;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(100% + 1rem);
+      width: 20px;
+      height: 3px;
+      background: $red;
+   }
+
+   &--center {
+      margin: auto;
+      text-align: center;
+
+      &::before {
+         @include pseudo;
+         top: 50%;
+         transform: translateY(-50%);
+         left: calc(-1rem - 20px);
+         width: 20px;
+         height: 3px;
+         background: $red;
+      }
+   }
+
+   @include make-responsive(tablet) {
+      font-size: calculateRem(30px);
+   }
+}
+
+.para {
+   letter-spacing: 1px;
+   margin: 1rem 0;
+   font-weight: 380;
+
+   @include make-responsive(tablet) {
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      margin: 0.5rem 0;
+   }
+}
+
+.text--indent {
+   text-indent: calculateRem(30px);
+}
+
+.btn {
+   min-width: 150px;
+   border-radius: 0;
+   border: 1px solid $red;
+   color: $dark;
+   padding: 0.5rem 1.5rem;
+   cursor: pointer;
+
+   &.btn-primary {
+      background: $red;
+      color: white;
+   }
+
+   &:hover {
+      box-shadow: 0 10px 10px 0 rgba($color: #000000, $alpha: 0.1);
+   }
+}
+
+a,
+button {
+   @include unselectable;
+}
 
 // !---------- Component styles ------------
 @import "./components/preloader";
 @import "./components/backToTop";
 @import "./components/forms";
+@import "./components/navbar";
 
 
 // !---------- Pages ------------
