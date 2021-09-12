@@ -1119,6 +1119,10 @@ button {
   color: #F21E3D;
 }
 
+.contact-us .close.display--none {
+  display: none;
+}
+
 .contact-us .contact-info {
   position: -webkit-sticky;
   position: sticky;
