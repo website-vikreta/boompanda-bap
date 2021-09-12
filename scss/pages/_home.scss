@@ -874,3 +874,309 @@
       }
    }
 }
+
+// ! JOURNEYS STYLES
+.journeys {
+   background: url("../../assets/svg/journey.png") 50% 60% no-repeat;
+   background-size: 110%;
+
+   min-height: 100vh;
+   padding: 10%;
+   position: relative;
+
+   .heading {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+   }
+
+   .heading+.para {
+      text-align: center;
+      margin: 0;
+   }
+
+   .card {
+      --pin-size: 80px;
+
+      &.level-1 {
+         --card-color: #F21E3D;
+         left: 21%;
+         bottom: 38%;
+      }
+
+      &.level-2 {
+         --card-color: #EF6100;
+         left: 40%;
+         bottom: 40%;
+      }
+
+      &.level-3 {
+         --card-color: #AD777B;
+         left: 58%;
+         bottom: 32%;
+      }
+
+      &.level-4 {
+         --card-color: #EA1821;
+         left: 80%;
+         bottom: 18%;
+      }
+
+      width: var(--pin-size);
+      height: calc(var(--pin-size) + 10px);
+      border-radius: var(--pin-size);
+      padding: 8px;
+      position: relative;
+      background: var(--card-color);
+      position: absolute;
+      transform: translateX(-50%);
+      @include z-index(popup);
+
+      &::after {
+         @include pseudo;
+         @include arrow($size: calc(var(--pin-size) / 2.15), $color: var(--card-color));
+         top: 50%;
+         left: 50%;
+         transform: translate(-50.5%, 55%);
+         border-radius: 100px;
+         @include z-index(pseudoBefore)
+      }
+
+      &__thumb-image {
+         background: white;
+         border-radius: 100%;
+         padding: 5px;
+         width: 100%;
+      }
+
+      .content {
+         width: calc(100% - 12px);
+         height: calc(100% - 10px);
+         transition: width 0.35s ease, height 0.35s ease;
+         overflow: hidden;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+
+         &__text {
+            width: calc(400px - 3rem);
+            visibility: hidden;
+            opacity: 0;
+            transition: $transition;
+            transition-delay: 0.35s;
+
+            .para {
+               margin: 0;
+            }
+         }
+
+         &__title {
+            text-align: center;
+
+            &+.para {
+               text-align: center;
+               margin: 0;
+            }
+         }
+
+         &__button {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translate(-50%, -50%);
+            background: $red;
+            width: 80%;
+            padding: 0.5rem;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+               box-shadow: 0 10px 20px 0 rgba($color: #000000, $alpha: 0.2);
+            }
+         }
+
+         .perks {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+
+            &__item {
+               display: flex;
+               gap: 0.5rem;
+               font-size: 0.9rem;
+               letter-spacing: 0.5px;
+               color: $dark;
+
+               i {
+                  color: $red;
+               }
+            }
+         }
+      }
+
+
+      &:hover {
+         background: transparent;
+
+         &::after {
+            border-color: transparent;
+         }
+
+         .content {
+            width: 400px;
+            height: auto;
+            background: white;
+            padding: 40px 1.5rem 5vh;
+            overflow: visible;
+            border: 1px solid $red;
+
+            &__text {
+               visibility: visible;
+               opacity: 1;
+            }
+
+            .card__thumb-image {
+               position: absolute;
+               top: 0;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               width: 40%;
+               max-width: 120px;
+               padding: 5%;
+               border: none;
+               border-top: 1px solid $red;
+               background: linear-gradient(to bottom, #fff 50%, rgba(#fff, 0));
+            }
+         }
+      }
+   }
+
+   @include make-responsive(desktop) {
+      min-height: 80vh;
+
+      .card {
+         .content {
+            &__text {
+               width: calc(350px - 3rem);
+            }
+
+            .perks {
+               gap: 0.5rem;
+
+               &__item {
+                  font-size: 0.8rem;
+               }
+            }
+         }
+
+         &:hover {
+            .content {
+               width: 350px;
+            }
+         }
+      }
+   }
+
+   @include make-responsive(tablet-wide) {
+      background: none;
+
+      .card-wrapper {
+         padding: 0;
+         display: flex;
+         flex-flow: row-reverse wrap-reverse;
+         align-items: stretch;
+         gap: 100px 20px;
+         position: relative;
+         margin-top: 100px;
+      }
+
+      .card {
+         width: calc(50% - 10px);
+         height: initial;
+         position: initial;
+         transform: initial;
+         border-radius: 0;
+         margin: 0;
+         padding: 0;
+
+         background: transparent;
+
+         &::after {
+            border-color: transparent;
+         }
+
+         .content {
+            height: 100% !important;
+            width: 100%;
+            height: max-content;
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: initial;
+            height: auto;
+            background: white;
+            padding: 40px 1.5rem 5vh;
+            overflow: visible;
+            border: 1px solid $red;
+
+            &__text {
+               width: 100%;
+               visibility: visible;
+               opacity: 1;
+            }
+
+            .card__thumb-image {
+               position: absolute;
+               top: 0;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               width: 40%;
+               max-width: 120px;
+               padding: 5%;
+               border: none;
+               border-top: 1px solid $red;
+               background: linear-gradient(to bottom, #fff 50%, rgba(#fff, 0));
+            }
+         }
+
+         &:hover {
+            .content {
+               width: 100%;
+               height: 100%;
+            }
+         }
+      }
+   }
+
+   @include make-responsive(tablet) {
+      padding: 10vh 0;
+
+      .card-wrapper {
+         gap: 80px;
+         margin-top: 80px;
+      }
+
+      .card {
+         width: 100%;
+         z-index: initial !important;
+
+         .content {
+            padding: 40px 1rem 3rem 1rem;
+
+            .card__thumb-image {
+               width: 100px;
+            }
+
+            &:hover {
+               padding: 40px 1rem 3rem 1rem;
+
+               .card__thumb-image {
+                  width: 100px;
+               }
+            }
+         }
+      }
+   }
+}

@@ -1404,4 +1404,322 @@ button {
     margin-top: 10px;
   }
 }
+
+.journeys {
+  background: url("../../assets/svg/journey.png") 50% 60% no-repeat;
+  background-size: 110%;
+  min-height: 100vh;
+  padding: 10%;
+  position: relative;
+}
+
+.journeys .heading {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.journeys .heading + .para {
+  text-align: center;
+  margin: 0;
+}
+
+.journeys .card {
+  --pin-size: 80px;
+  width: var(--pin-size);
+  height: calc(var(--pin-size) + 10px);
+  border-radius: var(--pin-size);
+  padding: 8px;
+  position: relative;
+  background: var(--card-color);
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 200;
+}
+
+.journeys .card.level-1 {
+  --card-color: #F21E3D;
+  left: 21%;
+  bottom: 38%;
+}
+
+.journeys .card.level-2 {
+  --card-color: #EF6100;
+  left: 40%;
+  bottom: 40%;
+}
+
+.journeys .card.level-3 {
+  --card-color: #AD777B;
+  left: 58%;
+  bottom: 32%;
+}
+
+.journeys .card.level-4 {
+  --card-color: #EA1821;
+  left: 80%;
+  bottom: 18%;
+}
+
+.journeys .card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: calc(var(--pin-size) / 2.15) solid transparent;
+  border-right: calc(var(--pin-size) / 2.15) solid transparent;
+  border-top: calc(var(--pin-size) / 2.15) solid var(--card-color);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50.5%, 55%);
+          transform: translate(-50.5%, 55%);
+  border-radius: 100px;
+  z-index: -1;
+}
+
+.journeys .card__thumb-image {
+  background: white;
+  border-radius: 100%;
+  padding: 5px;
+  width: 100%;
+}
+
+.journeys .card .content {
+  width: calc(100% - 12px);
+  height: calc(100% - 10px);
+  -webkit-transition: width 0.35s ease, height 0.35s ease;
+  transition: width 0.35s ease, height 0.35s ease;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.journeys .card .content__text {
+  width: calc(400px - 3rem);
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  -webkit-transition-delay: 0.35s;
+          transition-delay: 0.35s;
+}
+
+.journeys .card .content__text .para {
+  margin: 0;
+}
+
+.journeys .card .content__title {
+  text-align: center;
+}
+
+.journeys .card .content__title + .para {
+  text-align: center;
+  margin: 0;
+}
+
+.journeys .card .content__button {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #F21E3D;
+  width: 80%;
+  padding: 0.5rem;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.journeys .card .content__button:hover {
+  -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.journeys .card .content .perks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.journeys .card .content .perks__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  color: #1d2956;
+}
+
+.journeys .card .content .perks__item i {
+  color: #F21E3D;
+}
+
+.journeys .card:hover {
+  background: transparent;
+}
+
+.journeys .card:hover::after {
+  border-color: transparent;
+}
+
+.journeys .card:hover .content {
+  width: 400px;
+  height: auto;
+  background: white;
+  padding: 40px 1.5rem 5vh;
+  overflow: visible;
+  border: 1px solid #F21E3D;
+}
+
+.journeys .card:hover .content__text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.journeys .card:hover .content .card__thumb-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 40%;
+  max-width: 120px;
+  padding: 5%;
+  border: none;
+  border-top: 1px solid #F21E3D;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #fff), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, #fff 50%, rgba(255, 255, 255, 0));
+}
+
+@media only screen and (max-width: 1280px) {
+  .journeys {
+    min-height: 80vh;
+  }
+  .journeys .card .content__text {
+    width: calc(350px - 3rem);
+  }
+  .journeys .card .content .perks {
+    gap: 0.5rem;
+  }
+  .journeys .card .content .perks__item {
+    font-size: 0.8rem;
+  }
+  .journeys .card:hover .content {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .journeys {
+    background: none;
+  }
+  .journeys .card-wrapper {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: row-reverse wrap-reverse;
+            flex-flow: row-reverse wrap-reverse;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    gap: 100px 20px;
+    position: relative;
+    margin-top: 100px;
+  }
+  .journeys .card {
+    width: calc(50% - 10px);
+    height: initial;
+    position: initial;
+    -webkit-transform: initial;
+            transform: initial;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .journeys .card::after {
+    border-color: transparent;
+  }
+  .journeys .card .content {
+    height: 100% !important;
+    width: 100%;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    position: relative;
+    left: 0;
+    top: 0;
+    -webkit-transform: initial;
+            transform: initial;
+    height: auto;
+    background: white;
+    padding: 40px 1.5rem 5vh;
+    overflow: visible;
+    border: 1px solid #F21E3D;
+  }
+  .journeys .card .content__text {
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+  }
+  .journeys .card .content .card__thumb-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 40%;
+    max-width: 120px;
+    padding: 5%;
+    border: none;
+    border-top: 1px solid #F21E3D;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #fff), to(rgba(255, 255, 255, 0)));
+    background: linear-gradient(to bottom, #fff 50%, rgba(255, 255, 255, 0));
+  }
+  .journeys .card:hover .content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .journeys {
+    padding: 10vh 0;
+  }
+  .journeys .card-wrapper {
+    gap: 80px;
+    margin-top: 80px;
+  }
+  .journeys .card {
+    width: 100%;
+    z-index: initial !important;
+  }
+  .journeys .card .content {
+    padding: 40px 1rem 3rem 1rem;
+  }
+  .journeys .card .content .card__thumb-image {
+    width: 100px;
+  }
+  .journeys .card .content:hover {
+    padding: 40px 1rem 3rem 1rem;
+  }
+  .journeys .card .content:hover .card__thumb-image {
+    width: 100px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
