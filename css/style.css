@@ -88,6 +88,7 @@ select {
 /* Arrows with sass */
 body {
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 p,
@@ -1292,15 +1293,22 @@ button {
   margin-left: 0.5rem;
 }
 
-.contact-us .pane-wrapper .form-group input {
+.contact-us .pane-wrapper .form-group .form-control {
   border: none;
   width: 100%;
   height: 100%;
   padding: 0.8rem 1.5rem;
 }
 
-.contact-us .pane-wrapper .form-group input:focus {
+.contact-us .pane-wrapper .form-group .form-control:focus {
   outline: 1px solid #F21E3D;
+}
+
+.contact-us .pane-wrapper .form-group .error {
+  color: #F21E3D;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 20px;
 }
 
 .contact-us .pane-wrapper .buttons {

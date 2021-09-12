@@ -740,7 +740,7 @@
             }
          }
 
-         input {
+         .form-control {
             border: none;
             width: 100%;
             height: 100%;
@@ -749,6 +749,13 @@
             &:focus {
                outline: 1px solid $red;
             }
+         }
+
+         .error {
+            color: $red;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 20px;
          }
       }
 

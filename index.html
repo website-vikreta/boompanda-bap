@@ -576,7 +576,7 @@
    <!-- ============================== -->
    <!-- Contact Us Section -->
    <!-- ============================== -->
-   <input type="checkbox" class="display--none" id="contactCheckbox">
+   <input type="checkbox" class="display--none" id="contactCheckbox" checked>
    <section class="contact-us" id="contactus">
       <div class="container">
          <label class="close display--none" id="closeContactForm" for="contactCheckbox"><i
@@ -615,31 +615,62 @@
                         <div class="form-row">
                            <div class="form-group">
                               <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <input type="text" class="form-control" id="ctcFullName">
                            </div>
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                        </div>
-                        <div class="form-row">
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>Mobile Number <i class="bi bi-asterisk"></i></label>
+                              <input type="tel" class="form-control" id="ctcMobileNumber">
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>Email <i class="bi bi-asterisk"></i></label>
+                              <input type="email" class="form-control" id="ctcEmail">
                            </div>
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>DOB <i class="bi bi-asterisk"></i></label>
+                              <input type="date" class="form-control" id="ctcDob">
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-group">
+                              <label>State <i class="bi bi-asterisk"></i></label>
+                              <select onchange="print_city('ctcCity', this.selectedIndex);" id="sts"
+                                 class="form-control"></select>
+                           </div>
+                           <div class="form-group">
+                              <label>City <i class="bi bi-asterisk"></i></label>
+                              <select class="form-control" id="ctcCity"></select>
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-group">
+                              <label>Instagram Handle <i class="bi bi-asterisk"></i></label>
+                              <input type="url" class="form-control" id="ctcInstagram">
+                           </div>
+                           <div class="form-group">
+                              <label>Youtube Channel</label>
+                              <input type="url" class="form-control" id="ctcYoutube">
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-group">
+                              <label>Snapchat Profile</label>
+                              <input type="url" class="form-control" id="ctcSnapchat">
+                           </div>
+                           <div class="form-group">
+                              <label>FaceBook</label>
+                              <input type="url" class="form-control" id="ctcFacebook">
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-group">
+                              <label>LinkedIn Handle</label>
+                              <input type="url" class="form-control" id="ctcLinkedin">
+                           </div>
+                           <div class="form-group">
+                              <label>Other</label>
+                              <input type="url" class="form-control" id="ctcOther">
                            </div>
                         </div>
 
@@ -658,42 +689,31 @@
 
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>College Name <i class="bi bi-asterisk"></i></label>
+                              <div id="college-list"></div>
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>Course <i class="bi bi-asterisk"></i></label>
+                              <div id="course-list"></div>
                            </div>
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                        </div>
-                        <div class="form-row">
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>Year <i class="bi bi-asterisk"></i></label>
+                              <select id="ctcYear" class="form-control">
+                                 <option value="">--- Select Year ---</option>
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                                 <option value="5">5</option>
+                              </select>
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name</label>
-                              <input type="text" class="form-control">
+                              <label>College Event name or College Club/ society <i class="bi bi-asterisk"></i></label>
+                              <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
                            </div>
                         </div>
 
@@ -712,32 +732,20 @@
 
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>Where did you hear about us? <i class="bi bi-asterisk"></i></label>
+                              <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>Referral Code </label>
+                              <textarea class="form-control" id="ctcCollegeEvent" rows="1"></textarea>
                            </div>
                         </div>
                         <div class="form-row">
                            <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
-                           </div>
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control">
+                              <label>What excites you to join us? <i class="bi bi-asterisk"></i></label>
+                              <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
                            </div>
                         </div>
 
@@ -772,7 +780,17 @@
    <script src="./vendor/jquery/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
    <script src="./js/main.js"></script>
+   <script src="./include/cities.js"></script>
    <script src="./js/contactus.js"></script>
+   <script>
+      $.get("./include/college.html", function (data) {
+         $("#college-list").replaceWith(data);
+      });
+      $.get("./include/courses.html", function (data) {
+         $("#course-list").replaceWith(data);
+      });
+      print_state("state1");
+   </script>
 </body>
 
 </html>
