@@ -1,79 +1,44 @@
 if (document.documentElement.clientWidth > 768) {
-   $("#personalNext").click((e) => {
-      e.preventDefault();
-
-      // shifting pane
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'translateX(calc(-60vw + 10vw))'
-      })
-
-      // adding active class
-      $("#collegeDetailsItem .line").addClass('active');
-   });
-   $("#collegeNext").click((e) => {
-      e.preventDefault();
-
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'translateX(calc((-60vw + 10vw) * 2))'
-      })
-      // adding active class
-      $("#generalItem .line").addClass('active');
-   });
-   $("#collegePrev").click((e) => {
-      e.preventDefault();
-
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'initial'
-      })
-      // removing active class
-      $("#collegeDetailsItem .line").removeClass('active');
-   });
-   $("#generalPrev").click((e) => {
-      e.preventDefault();
-
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'translateX(calc((-60vw + 10vw)))'
-      })
-      // removing active class
-      $("#generalItem .line").removeClass('active');
-   });
+   var viewWidth = "-60vw"
 } else {
-   $("#personalNext").click((e) => {
-      e.preventDefault();
-
-      // shifting pane
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'translateX(calc(-100vw + 10vw))'
-      })
-
-      // adding active class
-      $("#collegeDetailsItem .line").addClass('active');
-   });
-   $("#collegeNext").click((e) => {
-      e.preventDefault();
-
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'translateX(calc((-100vw + 10vw) * 2))'
-      })
-      // adding active class
-      $("#generalItem .line").addClass('active');
-   });
-   $("#collegePrev").click((e) => {
-      e.preventDefault();
-
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'initial'
-      })
-      // removing active class
-      $("#collegeDetailsItem .line").removeClass('active');
-   });
-   $("#generalPrev").click((e) => {
-      e.preventDefault();
-
-      $(".pane-wrapper__form-pane").css({
-         'transform': 'translateX(calc((-100vw + 10vw)))'
-      })
-      // removing active class
-      $("#generalItem .line").removeClass('active');
-   });
+   var viewWidth = "-100vw"
 }
+
+
+
+$("#personalNext").click((e) => {
+   e.preventDefault();
+   // shifting pane
+   $(".pane-wrapper__form-pane").css({
+      'transform': 'translateX(calc(' + viewWidth + ' + 10vw))'
+   })
+   // adding active class
+   $("#collegeDetailsItem .line").addClass('active');
+});
+
+
+$("#collegeNext").click((e) => {
+   e.preventDefault();
+   $(".pane-wrapper__form-pane").css({
+      'transform': 'translateX(calc((' + viewWidth + ' + 10vw) * 2))'
+   })
+   $("#generalItem .line").addClass('active');
+});
+
+
+$("#collegePrev").click((e) => {
+   e.preventDefault();
+   $(".pane-wrapper__form-pane").css({
+      'transform': 'initial'
+   })
+   $("#collegeDetailsItem .line").removeClass('active');
+});
+
+
+$("#generalPrev").click((e) => {
+   e.preventDefault();
+   $(".pane-wrapper__form-pane").css({
+      'transform': 'translateX(calc((' + viewWidth + ' + 10vw)))'
+   })
+   $("#generalItem .line").removeClass('active');
+});
