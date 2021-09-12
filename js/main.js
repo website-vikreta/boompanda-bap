@@ -22,19 +22,24 @@ const lottieImages = document.querySelectorAll('[data-src]');
 var imgOptions = {}
 function preloadImage(img) {
    const src = img.getAttribute("data-src");
-   const speed = img.getAttribute("data-speed");
+   const type = img.getAttribute("data-type");
    if (!src) {
       return;
    }
-   var animation = bodymovin.loadAnimation({
-      container: img,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: src,
-   })
-   if (speed) {
-      animation.setSpeed(speed);
+   if (type && type == "img") {
+      img.src = src;
+   } else {
+      var animation = bodymovin.loadAnimation({
+         container: img,
+         renderer: 'svg',
+         loop: true,
+         autoplay: true,
+         path: src,
+      })
+      const speed = img.getAttribute("data-speed");
+      if (speed) {
+         animation.setSpeed(speed);
+      }
    }
 }
 var imgObserver = new IntersectionObserver((entries, imgObserver) => {

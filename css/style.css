@@ -100,6 +100,11 @@ h6 {
   color: #1d2956;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .container {
   max-width: 1300px;
   margin: auto;
