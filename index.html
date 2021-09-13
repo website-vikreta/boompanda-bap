@@ -576,7 +576,7 @@
    <!-- ============================== -->
    <!-- Contact Us Section -->
    <!-- ============================== -->
-   <input type="checkbox" class="display--none" id="contactCheckbox" checked>
+   <input type="checkbox" class="display--none" id="contactCheckbox">
    <section class="contact-us" id="contactus">
       <div class="container">
          <label class="close display--none" id="closeContactForm" for="contactCheckbox"><i
@@ -601,7 +601,7 @@
                </ul>
 
                <!-- tab panes -->
-               <form class="pane-wrapper">
+               <form class="pane-wrapper" id="contactForm">
                   <section class="pane-wrapper__form-pane">
 
                      <!-- ? personal Details -->
@@ -613,69 +613,105 @@
                         </p>
 
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>Full Name <i class="bi bi-asterisk"></i></label>
-                              <input type="text" class="form-control" id="ctcFullName">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Full Name <i class="bi bi-asterisk"></i></label>
+                                 <input type="text" class="form-control" id="ctcFullName">
+                              </div>
+                              <span class="error" id="errFullName"></span>
                            </div>
-                           <div class="form-group">
-                              <label>Mobile Number <i class="bi bi-asterisk"></i></label>
-                              <input type="tel" class="form-control" id="ctcMobileNumber">
-                           </div>
-                        </div>
-                        <div class="form-row">
-                           <div class="form-group">
-                              <label>Email <i class="bi bi-asterisk"></i></label>
-                              <input type="email" class="form-control" id="ctcEmail">
-                           </div>
-                           <div class="form-group">
-                              <label>DOB <i class="bi bi-asterisk"></i></label>
-                              <input type="date" class="form-control" id="ctcDob">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Mobile Number <i class="bi bi-asterisk"></i></label>
+                                 <input type="text" class="form-control" id="ctcMobileNumber">
+                              </div>
+                              <span class="error" id="errMobile"></span>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>State <i class="bi bi-asterisk"></i></label>
-                              <select onchange="print_city('ctcCity', this.selectedIndex);" id="sts"
-                                 class="form-control"></select>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Email <i class="bi bi-asterisk"></i></label>
+                                 <input type="email" class="form-control" id="ctcEmail">
+                              </div>
+                              <span class="error" id="errEmail"></span>
                            </div>
-                           <div class="form-group">
-                              <label>City <i class="bi bi-asterisk"></i></label>
-                              <select class="form-control" id="ctcCity"></select>
-                           </div>
-                        </div>
-                        <div class="form-row">
-                           <div class="form-group">
-                              <label>Instagram Handle <i class="bi bi-asterisk"></i></label>
-                              <input type="url" class="form-control" id="ctcInstagram">
-                           </div>
-                           <div class="form-group">
-                              <label>Youtube Channel</label>
-                              <input type="url" class="form-control" id="ctcYoutube">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>DOB <i class="bi bi-asterisk"></i></label>
+                                 <input type="date" class="form-control" id="ctcDob">
+                              </div>
+                              <span class="error" id="errDob"></span>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>Snapchat Profile</label>
-                              <input type="url" class="form-control" id="ctcSnapchat">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>State <i class="bi bi-asterisk"></i></label>
+                                 <select onchange="print_city('ctcCity', this.selectedIndex);" id="sts"
+                                    class="form-control"></select>
+                              </div>
+                              <span class="error" id="errState"></span>
                            </div>
-                           <div class="form-group">
-                              <label>FaceBook</label>
-                              <input type="url" class="form-control" id="ctcFacebook">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>City <i class="bi bi-asterisk"></i></label>
+                                 <select class="form-control" id="ctcCity"></select>
+                              </div>
+                              <span class="error" id="errCity"></span>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>LinkedIn Handle</label>
-                              <input type="url" class="form-control" id="ctcLinkedin">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Instagram Handle <i class="bi bi-asterisk"></i></label>
+                                 <input type="text" class="form-control" id="ctcInstagram">
+                              </div>
+                              <span class="error" id="errInstagram"></span>
                            </div>
-                           <div class="form-group">
-                              <label>Other</label>
-                              <input type="url" class="form-control" id="ctcOther">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Youtube Channel</label>
+                                 <input type="url" class="form-control" id="ctcYoutube">
+                              </div>
+                              <span class="error" id="errYoutube"></span>
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Snapchat Profile</label>
+                                 <input type="url" class="form-control" id="ctcSnapchat">
+                              </div>
+                              <span class="error" id="errSnapchat"></span>
+                           </div>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>FaceBook</label>
+                                 <input type="url" class="form-control" id="ctcFacebook">
+                              </div>
+                              <span class="error" id="errFacebook"></span>
+                           </div>
+                        </div>
+                        <div class="form-row">
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>LinkedIn Handle</label>
+                                 <input type="url" class="form-control" id="ctcLinkedin">
+                              </div>
+                              <span class="error" id="errLinkedin"></span>
+                           </div>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Other</label>
+                                 <input type="url" class="form-control" id="ctcOther">
+                              </div>
+                              <span class="error" id="errOther"></span>
                            </div>
                         </div>
 
                         <div class="buttons">
-                           <button class="btn btn--dark" id="reset" type="reset">Reset</button>
+                           <button class="btn btn--dark" id="ctcResetButton" type="reset">Reset</button>
                            <button class="btn btn--red" id="personalNext" type="button">Next</button>
                         </div>
                      </div>
@@ -688,32 +724,44 @@
                         </p>
 
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>College Name <i class="bi bi-asterisk"></i></label>
-                              <div id="college-list"></div>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>College Name <i class="bi bi-asterisk"></i></label>
+                                 <div id="college-list"></div>
+                              </div>
+                              <span class="error" id="errCollege"></span>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>Course <i class="bi bi-asterisk"></i></label>
-                              <div id="course-list"></div>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Course <i class="bi bi-asterisk"></i></label>
+                                 <div id="course-list"></div>
+                              </div>
+                              <span class="error" id="errCourse"></span>
                            </div>
-                           <div class="form-group">
-                              <label>Year <i class="bi bi-asterisk"></i></label>
-                              <select id="ctcYear" class="form-control">
-                                 <option value="">--- Select Year ---</option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                                 <option value="3">3</option>
-                                 <option value="4">4</option>
-                                 <option value="5">5</option>
-                              </select>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Year <i class="bi bi-asterisk"></i></label>
+                                 <select id="ctcYear" class="form-control">
+                                    <option value="">--- Select Year ---</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                 </select>
+                              </div>
+                              <span class="error" id="errYear"></span>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>College Event name or College Club/ society <i class="bi bi-asterisk"></i></label>
-                              <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>College Event name or College Club/ society </label>
+                                 <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
+                              </div>
+                              <span class="error" id="errCollegeEvent"></span>
                            </div>
                         </div>
 
@@ -731,21 +779,29 @@
                         </p>
 
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>Where did you hear about us? <i class="bi bi-asterisk"></i></label>
-                              <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Where did you hear about us? <i class="bi bi-asterisk"></i></label>
+                                 <textarea class="form-control" id="ctcHere" rows="2"></textarea>
+                              </div>
+                              <span class="error" id="errHere"></span>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>Referral Code </label>
-                              <textarea class="form-control" id="ctcCollegeEvent" rows="1"></textarea>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>Referral Code </label>
+                                 <textarea class="form-control" id="ctcReferral" rows="1"></textarea>
+                              </div>
                            </div>
                         </div>
                         <div class="form-row">
-                           <div class="form-group">
-                              <label>What excites you to join us? <i class="bi bi-asterisk"></i></label>
-                              <textarea class="form-control" id="ctcCollegeEvent" rows="3"></textarea>
+                           <div class="form-handle">
+                              <div class="form-group">
+                                 <label>What excites you to join us? <i class="bi bi-asterisk"></i></label>
+                                 <textarea class="form-control" id="ctcWhatExcite" rows="2"></textarea>
+                              </div>
+                              <span class="error" id="errWhatExcite"></span>
                            </div>
                         </div>
 

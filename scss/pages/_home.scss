@@ -7,6 +7,7 @@
    .container {
       @include flex-between;
       min-height: 100vh;
+      padding-block: calc(max(50px, 10vh));
    }
 
    &::before {
@@ -246,7 +247,7 @@
       transform: translateX(-50%);
       margin-top: 70px;
 
-      background: url("../../assets/svg/about-plants.svg") bottom no-repeat;
+      background: url("../assets/svg/about-plants.svg") bottom no-repeat;
       background-size: 100%;
 
       .para {
@@ -419,7 +420,7 @@
 .who-can {
    text-align: center;
    padding: 20vh 0 10vh 0;
-   background: url("../../assets/svg/who-can.png") bottom no-repeat;
+   background: url("../assets/svg/who-can.png") bottom no-repeat;
    background-size: cover;
 
    .lottie {
@@ -716,6 +717,16 @@
          gap: 20px;
       }
 
+      .form-handle {
+         width: 100%;
+
+         .error {
+            color: $red;
+            font-size: 0.9rem;
+            display: block;
+         }
+      }
+
       .form-group {
          width: 100%;
          border: 1px solid #CCCCCC;
@@ -751,11 +762,8 @@
             }
          }
 
-         .error {
-            color: $red;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 20px;
+         textarea {
+            resize: none;
          }
       }
 
